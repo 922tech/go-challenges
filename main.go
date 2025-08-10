@@ -1,1 +1,2 @@
-package mahdadchallenges
+package main
+

@@ -33,3 +33,7 @@ func (s *SmsService) StartWorkerPool(size int8) {
 		go s.SmsSenderWorker()
 	}
 }
+
+func NewSmsService(bufferSize int64) SmsService {
+	return SmsService{queue: background.NewQueue[sms.SMS](bufferSize)}
+}

@@ -20,6 +20,10 @@ func (q *Queue[T]) Deq() (T, bool) {
 	return item, ok
 }
 
+func (q *Queue[T]) Len() int {
+	return len(q.que)
+}
+
 func NewQueue[T any](size int64) *Queue[T] {
 	var q chan T
 	if size != 0 {

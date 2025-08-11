@@ -16,5 +16,9 @@ func TestSendSMS(t *testing.T) {
 	for _, i := range []string{"a", "b", "c", "d", "e", "f"} {
 		s.SendSMS(sms.SMS{Message: i, Reciever: i})
 	}
-	time.Sleep(10 * time.Second)
+	time.Sleep(4 * time.Second)
+	if q.Len() != 0 {
+		t.Fail()
+		t.Log("queue is not empty yet")
+	}
 }
